@@ -18,8 +18,13 @@ app.use(express.json());
 
 // Importamos el Router de Libros
 const librosRouter = require("./routes/libros");
+// Importamos el Router de Usuarios
+const usuariosRouter = require("./routes/usuarios");
 
 app.use("/api/libros", jwtCheck,  librosRouter);
+
+// Importa y utiliza la ruta de usuarios
+app.use("/usuarios", jwtCheck, usuariosRouter);
 
 app.use(errorHandler);
 
